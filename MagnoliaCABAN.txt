@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuwara Eliya Magnolia Cabana | Luxury Stay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+   <<style>
+    /* --- CSS VARIABLES & RESET --- */
+    :root {
+        --dark-green: #142b14; 
+        --gold: #d4af37; 
+        --white: #ffffff;
+        --soft-gray: #f0f2f0; 
+        --text-color: #2c3e50;
+        --accent-bg: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 100%);
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        
+        /* NEW BLUE THEME VARIABLES */
+        --dark-blue: #0a192f;      /* Deep Navy */
+        --Dark Green: #006400;     /* Standard Dark Green */
+        --vibrant-blue: #007bff;   /* Accent Blue */
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--white);
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(20, 43, 20, 0.98);
+        padding: 1.2rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border-bottom: 2px solid var(--gold);
+    }
+
+    .logo {
+        color: var(--gold);
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links li {
+        margin-left: 2.5rem;
+    }
+
+    .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+        color: var(--gold);
+    }
+
+    /* --- HERO SECTION --- */
+    #home {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), 
+                    url(https://propertyguide.lk/_next/image?url=https%3A%2F%2Fpropertyguide-store.s3.ap-southeast-1.amazonaws.com%2Fikman%2Flarge_Aerial_View_of_Nuwara_Eliya_09610204ee.jpg&w=3840&q=75) no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        animation: fadeInDown 1s ease;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        letter-spacing: 5px;
+        font-weight: 300;
+    }
+
+    .btn-gold {
+        background-color: var(--gold);
+        color: var(--dark-green);
+        padding: 18px 45px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: var(--transition);
+        border: 2px solid var(--gold);
+        box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+    }
+
+    .btn-gold:hover {
+        background-color: transparent;
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4);
+    }
+
+    /* --- SECTION STYLING --- */
+    section {
+        padding: 120px 10%;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: var(--gold);
+        margin: 15px auto;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* --- ABOUT SECTION --- */
+    #about {
+        background: var(--soft-gray);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .about-text h2 { 
+        font-size: 2.5rem;
+        color: var(--dark-green);
+        margin-bottom: 25px; 
+    }
+    
+    .about-img img {
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 25px 25px 0px var(--gold);
+    }
+
+    /* --- FEATURES SECTION (BLUE THEME) --- */
+    #features {
+        background-color: var(--dark-green);
+    }
+
+    #features .section-title {
+        color: var(--white);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 5fr));
+        gap: 35px;
+    }
+
+    .feature-card {
+        background: var(--black);
+        padding: 55px 35px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        transition: var(--transition);
+        border: 1px solid #90EE90;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-15px);
+        background: var(--red);
+        color: var(--white);
+    }
+
+    .feature-card i {
+        font-size: 5rem;
+        color: var(--blue);
+        margin-bottom: 25px;
+    }
+    
+    .feature-card:hover i {
+        color: var(--white);
+    }
+
+    /* --- GALLERY (BLUE THEME) --- */
+    #gallery {
+        background-color: var(--dark-blue);
+    }
+
+    #gallery .section-title {
+        color: var(--white);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .gallery-item {
+        height: 300px;
+        overflow: hidden;
+        border-radius: 5px;
+        border: 4px solid var(--gold);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+    }
+
+    /* --- CONTACT SECTION --- */
+    #contact {
+        background: var(--accent-bg);
+        color: var(--white);
+    }
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+    }
+
+    .contact-info h2 { color: var(--gold); margin-bottom: 30px; font-size: 2.5rem; }
+    .info-item { margin-bottom: 20px; display: flex; align-items: center; font-size: 1.1rem; }
+    .info-item i { color: var(--gold); margin-right: 20px; font-size: 1.4rem; }
+
+    .phone-buttons { margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .call-btn {
+        display: inline-block;
+        margin: 8px;
+        padding: 12px 25px;
+        background: var(--gold);
+        color: var(--dark-green);
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: var(--transition);
+    }
+
+    .call-btn:hover {
+        background: white;
+        transform: scale(1.05);
+    }
+
+    #bookingForm {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    #bookingForm h3 { color: var(--dark-green); margin-bottom: 25px; text-align: center; }
+
+    input, textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 2px solid #eee;
+        border-radius: 4px;
+        font-family: inherit;
+    }
+
+    input:focus, textarea:focus {
+        border-color: var(--gold);
+        outline: none;
+    }
+
+    .date-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .map-container {
+        margin-top: 40px;
+        height: 350px;
+        border: 3px solid var(--gold);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        background: #0a140a;
+        color: #bdc3c7;
+        text-align: center;
+        padding: 60px 0;
+        border-top: 5px solid var(--gold);
+    }
+
+    .social-icons { margin: 30px 0; }
+    .social-icons a {
+        color: var(--white);
+        background: rgba(19)
+   </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">MAGNOLIA CABANA</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-content">
+            <h1>Magnolia Cabana</h1>
+            <p>LUXURY RETREAT NEAR GREGORY LAKE</p>
+            <a href="#contact" class="btn-gold">Book Your Stay</a>
+        </div>
+    </header>
+
+    <section id="about" class="reveal">
+        <div class="about-img">
+            <img src="https://www.image2url.com/r2/default/images/1776781286573-676d2374-39a0-4a87-ba30-f99a6216743b.png" alt="Magnolia Cabana Main View" /> 
+        </div>
+        <div class="about-text">
+            <h2>Escape to Tranquility</h2>
+            <p>Experience the ultimate retreat at <strong>Magnolia Cabana</strong>. Nestled in the heart of Nuwara Eliya's misty hills, our cabana offers a calm and comfortable sanctuary surrounded by lush nature.</p>
+            <br>
+            <p>Perfect for families seeking bonding time, couples, or solo travelers looking for quiet reflection. We are located just a short distance from the iconic Gregory Lake, giving you the perfect balance of convenience and seclusion.</p>
+        </div>
+    </section>
+
+    <section id="features" class="reveal">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bed"></i>
+                <h3>Comfortable Rooms</h3>
+                <p>Cozy interiors designed for couples and families to enjoy the cool climate.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Peaceful Environment</h3>
+                <p>Located away from the hustle, ensuring total relaxation and fresh air.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-water"></i>
+                <h3>Near Gregory Lake</h3>
+                <p>Easy access to water sports, boat rides, and lake-side dining.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-tv"></i>
+                <h3>Entertainment</h3>
+                <p>Modern TV facilities for high-quality entertainment during your stay.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-regular fa-star"></i>
+                <h3>Top Rated</h3>
+                <p>Highly rated with 4.5 stars on Google Maps for service and quality.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-spoon"></i>                
+                <h3>Kitchen Facilities</h3>
+                <p>Fully equipped kitchen space to prepare your favorite meals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="reveal">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://www.image2url.com/r2/default/images/1776761052588-d259c80b-5732-42bf-910d-41816ca540af.png" alt="Outdoor View"></div>
+            <div class="gallery-item"><img src="https://image2url.com/r2/default/images/1776759166735-54231484-fafb-4c3f-a645-72cbf9bcf89c.jpg" alt="Interior View"></div>
+            <div class="gallery-item"><img src="https://www.image2url.com/r2/default/images/1776777475903-5744d154-d1a6-41f6-8928-1c2423525a7c.png" alt="Lower Room"></div>
+            <div class="gallery-item"><img src="https://www.image2url.com/r2/default/images/1776779193682-33e4f416-35bd-4825-8513-5b225047e1a3.png" alt="Upper Rooms"></div>
+            <div class="gallery-item"><img src="https://www.image2url.com/r2/default/images/1776778332588-0c011498-39ac-46c6-b477-462bfe8b9ad4.png" alt="Balcony View"></div>
+            <div class="gallery-item"><img src="https://www.image2url.com/r2/default/images/1776780004198-602f11a0-4e61-4e9f-a1c4-ef1487e51dce.png" alt="Morning Mist"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Plan Your Visit</h2>
+                <p>We are ready to welcome you to our peaceful cabana.</p>
+                <br>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>25/1 Gamunupura Mahagasthota, Nuwara Eliya, Sri Lanka</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>071 611 0196 / 077 324 0892</p>
+                </div>
+                
+                <div class="phone-buttons">
+                    <p style="margin-bottom: 10px; font-weight: 600; color: var(--gold);">Quick Call Now:</p>
+                    <a href="tel:0716110196" class="call-btn"><i class="fas fa-phone"></i> 071 611 0196</a>
+                    <a href="tel:0773240892" class="call-btn"><i class="fas fa-phone"></i> 077 324 0892</a>
+                    <a href="tel:0727974776" class="call-btn"><i class="fas fa-phone"></i> 072 797 4776</a>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.2424249564478!2d80.78484280402834!3d6.951991522420709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3810078dc835b%3A0xd97bf0f6f44b0ced!2sNuwara%20Eliya%20Magnolia%20Cabana!5e0!3m2!1sen!2slk!4v1776836638652!5m2!1sen!2slk" width="800" height="345" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                        width="100%" height="225%" style="border:0;" allowhalfscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="bookingForm">
+                    <h3>Booking Inquiry</h3>
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    
+                    <div class="date-row">
+                        <div>
+                            <label style="color: #666; font-size: 0.75rem; display: block; margin-bottom: 5px;">Check-in</label>
+                            <input type="date" id="checkin" required>
+                        </div>
+                        <div>
+                            <label style="color: #666; font-size: 0.75rem; display: block; margin-bottom: 5px;">Check-out</label>
+                            <input type="date" id="checkout" required>
+                        </div>
+                    </div>
+                    
+                    <textarea id="message" rows="4" placeholder="Special requirements (e.g. number of guests)"></textarea>
+                    <button type="submit" class="btn-gold" style="width: 100%; border: none; cursor: pointer;">Send via WhatsApp</button>
+                    <p style="font-size: 0.7rem; color: #888; margin-top: 10px; text-align: center;">Clicking will open WhatsApp on your device.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Nuwara Eliya Magnolia Cabana. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">LUXURY STAY NEAR GEOGARY LAKE</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href=https://www.facebook.com/share/18eUVA3KCU/ target="_blank">Visit Our Facebook</a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href=https://www.titok.com/@magnolia.cabana?_r=1&_t=ZS-95biwiWiTOm target="_blank">Visit Our TikTok</a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href=https://wa.me/message/UUGZ3MJPXPYFK1 target="_blank">Message Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
+
+        // WhatsApp Form Logic
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const message = document.getElementById('message').value;
+            
+            // Target Number
+            const whatsappNumber = "94727974776"; // International format for 072 797 4776
+            
+            // Format the text
+            const text = `*New Booking Inquiry - Magnolia Cabana*%0A%0A` +
+                         `*Name:* ${name}%0A` +
+                         `*Phone:* ${phone}%0A` +
+                         `*Check-in:* ${checkin}%0A` +
+                         `*Check-out:* ${checkout}%0A` +
+                         `*Details:* ${message}`;
+            
+            // Create WhatsApp Link and Redirect
+            const wpLink = `https://wa.me/message/UUGZ3MJPXPYFK1?text=${text}`;
+            window.open(wpLink, '_blank');
+        });
+    </script>
+</body>
+</html>
